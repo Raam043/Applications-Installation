@@ -1,0 +1,29 @@
+Connect EC2 tomcat server
+sudo bash
+cd /opt
+cd apache-tomcat-9.0.65
+--Search conext.xml file--
+find / -name context.xml
+
+vi /opt/apache-tomcat-9.0.65/webapps/host-manager/META-INF/context.xml
+--Edit "<!--" before <Valve classname--
+--Edit "-->" after 0:0:1" /> --
+
+vi /opt/apache-tomcat-9.0.65/webapps/manager/META-INF/context.xml
+--Edit "<!--" before <Valve classname--
+--Edit "-->" after 0:0:1" /> --
+
+--Search the file or cd "conf"--
+find / -name tomcat-users.xsd
+
+vi /opt/apache-tomcat-9.0.65/conf/tomcat-users.xsd
+
+----Create / Paste roles between roles formula----
+
+          <role rolename="manager-gui"/>
+          <role rolename="manager-script"/>
+          <role rolename="manager-jmx"/>
+          <role rolename="manager-status"/>
+          <user username="ramesh" password="ramesh123" roles="manager-gui, manager-script, manager-jmx, manager-status"/>
+          <user username="deployer" password="deployer123" roles="manager-script"/>
+          <user username="admin" password="admin123" roles="manager-gui"/>
