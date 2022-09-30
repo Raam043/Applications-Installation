@@ -1,0 +1,7 @@
+          <role rolename="manager-gui"/>
+          <role rolename="manager-script"/>
+          <role rolename="manager-jmx"/>
+          <role rolename="manager-status"/>
+          <user username="ramesh" password="ramesh123" roles="manager-gui, manager-script, manager-jmx, manager-status"/>
+          <user username="deployer" password="deployer123" roles="manager-script"/>
+          <user username="admin" password="admin123" roles="manager-gui"/>
