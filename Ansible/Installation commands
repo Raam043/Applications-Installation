@@ -1,3 +1,12 @@
 #!/bin/bash
 yum update -y
 amazon-linux-extras install ansible2 -y
+
+
+ansible --version
+
+useradd ansiramesh
+passwd ansiramesh
+
+#set password for above user
+
