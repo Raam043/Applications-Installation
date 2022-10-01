@@ -1,0 +1,64 @@
+#Installation on linux >>>>>>>>>>
+
+
+#!/bin/bash
+yum update -y
+amazon-linux-extras install ansible2 -y
+
+
+ansible --version
+
+#Configurations>>>>>>>>>>>
+
+useradd ansiramesh
+passwd ansiramesh
+
+#set password for above user
+
+#edit sudo access
+visudo
+
+#in last add above user id as shown below
+ansiramesh  ALL=(ALL) NOPASSWD: ALL
+
+#save then go to ssh config for password remove
+cd /etc/ssh
+vi sshd_config
+
+...remove # from yes and put # at no
+
+service sshd restart
+
+#re login to server by using new user logiin "ansiramesh"
+ssh-keygen
+#hit enter upto generate the key
+cd .ssh
+#save key sepearet using "cat reading command" of .ssh file
+#copy private ip of client server 172.31.24.137
+ssh-copy-id 172.31.24.137
+#hit enter and it will ask your user password of ansiramesh user profile "ramesh123"
+# now you can login your client by using command " ssh 172.31.24.137" then "exit" for logout
+
+sudo vi /etc/ansible/hosts
+#delete everthing form the page and add below detials
+[all_hosts]
+172.31.24.137
+
+#check weather playbook working or not
+ansible all -m ping
+#if you get Sucess message then its working or you have to check for configuration setting
+
+
+#Create a dummy file then try copy into clients server
+vi hello.html
+<h1> Hello... this is Ramesh </h1>
+
+
+....to copy file from main to client use below code.....
+ansible all -m copy -a "src=/home/ansiramesh/hello.html dest=/home/ansiramesh"
+
+ansible -s all -m yum -a "name=httpd state=latest"
+
+
+
+
