@@ -33,4 +33,10 @@ service sshd restart
 ssh-keygen
 #hit enter upto generate the key
 cd .ssh
-#save 
+#save key sepearet using "cat reading command" of .ssh file
+#copy private ip of client server 172.31.24.137
+ssh-copy-id 172.31.24.137
+#hit enter and it will ask your user password of ansiramesh user profile "ramesh123"
+# now you can login your client by using command " ssh 172.31.24.137" then exit for logout
+
+
