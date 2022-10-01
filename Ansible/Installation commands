@@ -44,6 +44,14 @@ sudo vi /etc/ansible/hosts
 [all_hosts]
 172.31.24.137
 
+#check weather playbook working or not
+ansible all -m ping
+#if you get Sucess message then its working or you have to check for configuration setting
+
+
+....to copy file from main to client use below code.....
+ansible all -m copy -a "src=/home/ansiramesh/helloworld.html dest=/home/ansiramesh"
+
 
 
 
