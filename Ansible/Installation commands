@@ -49,8 +49,13 @@ ansible all -m ping
 #if you get Sucess message then its working or you have to check for configuration setting
 
 
+#Create a dummy file then try copy into clients server
+vi hello.html
+<h1> Hello... this is Ramesh </h1>
+
+
 ....to copy file from main to client use below code.....
-ansible all -m copy -a "src=/home/ansiramesh/helloworld.html dest=/home/ansiramesh"
+ansible all -m copy -a "src=/home/ansiramesh/hello.html dest=/home/ansiramesh"
 
 
 
