@@ -23,4 +23,6 @@ ansiramesh  ALL=(ALL) NOPASSWD: ALL
 
 #save then go to ssh config for password remove
 cd /etc/ssh
-vi ssh_config
+vi sshd_config
+
+...remove # from yes and put # at no
