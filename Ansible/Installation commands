@@ -37,6 +37,14 @@ cd .ssh
 #copy private ip of client server 172.31.24.137
 ssh-copy-id 172.31.24.137
 #hit enter and it will ask your user password of ansiramesh user profile "ramesh123"
-# now you can login your client by using command " ssh 172.31.24.137" then exit for logout
+# now you can login your client by using command " ssh 172.31.24.137" then "exit" for logout
+
+sudo vi /etc/ansible/hosts
+#delete everthing form the page and add below detials
+[all_hosts]
+172.31.24.137
+
+
+
 
 
