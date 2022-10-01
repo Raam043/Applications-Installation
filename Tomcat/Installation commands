@@ -1,9 +1,9 @@
 #!/bin/bash
 cd /opt
-wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.65/bin/apache-tomcat-9.0.65.tar.gz
-chmod 777 apache-tomcat-9.0.65.tar.gz
-tar -xzvf apache-tomcat-9.0.65.tar.gz
-cd apache-tomcat-9.0.65/
+wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.65/bin/apache-tomcat-9.0.67.tar.gz
+chmod 777 apache-tomcat-9.0.67.tar.gz
+tar -xzvf apache-tomcat-9.0.67.tar.gz
+cd apache-tomcat-9.0.67/
 cd bin
 yum install java -y
 cd ..
@@ -18,11 +18,11 @@ Paste the above commands in EC2-User data field.
 Connect EC2 tomcat server
 sudo bash
 cd /opt
-cd apache-tomcat-9.0.65
+cd apache-tomcat-9.0.67
 --Search conext.xml file--
 find / -name context.xml
 
-vi /opt/apache-tomcat-9.0.65/webapps/host-manager/META-INF/context.xml
+vi /opt/apache-tomcat-9.0.67/webapps/host-manager/META-INF/context.xml
 --Edit "<!--" before <Valve classname--
 --Edit "-->" after 0:0:1" /> --
 
@@ -33,7 +33,7 @@ vi /opt/apache-tomcat-9.0.65/webapps/manager/META-INF/context.xml
 --Search the file or cd "conf"--
 find / -name tomcat-users.xsd
 
-vi /opt/apache-tomcat-9.0.65/conf/tomcat-users.xsd
+vi /opt/apache-tomcat-9.0.67/conf/tomcat-users.xsd
 
 ----Create / Paste roles between roles formula----
 
