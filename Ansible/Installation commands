@@ -26,3 +26,11 @@ cd /etc/ssh
 vi sshd_config
 
 ...remove # from yes and put # at no
+
+service sshd restart
+
+#re login to server by using new user logiin "ansiramesh"
+ssh-keygen
+#hit enter upto generate the key
+cd .ssh
+#save 
