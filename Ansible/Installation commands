@@ -20,3 +20,7 @@ visudo
 
 #in last add above user id as shown below
 ansiramesh  ALL=(ALL) NOPASSWD: ALL
+
+#save then go to ssh config for password remove
+cd /etc/ssh
+vi ssh_config
