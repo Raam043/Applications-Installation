@@ -1,3 +1,6 @@
+#Installation on linux >>>>>>>>>>
+
+
 #!/bin/bash
 yum update -y
 amazon-linux-extras install ansible2 -y
@@ -5,8 +8,15 @@ amazon-linux-extras install ansible2 -y
 
 ansible --version
 
+#Configurations>>>>>>>>>>>
+
 useradd ansiramesh
 passwd ansiramesh
 
 #set password for above user
 
+#edit sudo access
+visudo
+
+#in last add above user id as shown below
+ansiramesh  ALL=(ALL) NOPASSWD: ALL
