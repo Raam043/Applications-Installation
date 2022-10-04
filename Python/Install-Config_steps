@@ -1,0 +1,14 @@
+Python is preinstalled on Linux server 
+to confirm enter the command "pythin --version"
+
+here is the installation steps for ubuntu
+sudo su
+apt-get install python3
+apt-get install python3.9 -y
+
+Configuration >>>
+cd cpython
+./configure --prefix=$HOME/python3.9
+./configure --enable-optimizations --prefix=$HOME/python3.9
+##test the above config using below command
+echo $HOME
