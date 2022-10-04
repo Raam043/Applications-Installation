@@ -1,0 +1,6 @@
+"Option : 2" for NGINX Web server installation on linux server
+
+#!/bin/bash
+yum update -y
+amazon-linux-extras install nginx1.12 -y
+service nginx start
