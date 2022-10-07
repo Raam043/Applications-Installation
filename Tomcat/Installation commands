@@ -1,6 +1,6 @@
 #!/bin/bash
 cd /opt
-wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.65/bin/apache-tomcat-9.0.67.tar.gz
+wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.67/bin/apache-tomcat-9.0.67.tar.gz
 chmod 777 apache-tomcat-9.0.67.tar.gz
 tar -xzvf apache-tomcat-9.0.67.tar.gz
 cd apache-tomcat-9.0.67/
