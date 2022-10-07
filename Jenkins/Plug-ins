@@ -1,0 +1,10 @@
+Additional plugins after suggested plugins
+
+Maven integration
+Multibranch pipeline
+Maven invoker
+Deploy to container
+Publish over SSH
+Authentication Tokens API
+Docker pipeline
+Ansible
