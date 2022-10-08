@@ -5,6 +5,7 @@ Multibranch pipeline
 Maven invoker
 Deploy to container
 Publish over SSH
+SSH agent
 Authentication Tokens API
 Docker pipeline
 Ansible
