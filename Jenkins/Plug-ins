@@ -8,3 +8,4 @@ Publish over SSH
 Authentication Tokens API
 Docker pipeline
 Ansible
+Build pipeline plugin
