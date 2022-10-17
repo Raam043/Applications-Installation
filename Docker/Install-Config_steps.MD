@@ -1,18 +1,21 @@
 # Installing docker on linux 
+```sh
 yum udpate -y
 yum install docker -y
 systemctl enable docker
 systemctl start docker
 yum install pip -y
 pip install docker-py
+```
 
 # create docker working directory
-sh
+```sh
 cd /opt
 mkdir docker
 cd docker
 vi Dockerfile
---
+
+```
 
 ## create docker container
 docker create --name nginx_base -p 80:80 nginx:alpine
