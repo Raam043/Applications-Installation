@@ -7,12 +7,14 @@ yum install pip -y
 pip install docker-py
 
 # create docker working directory
+sh
 cd /opt
 mkdir docker
 cd docker
 vi Dockerfile
+--
 
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+## create docker container
 docker create --name nginx_base -p 80:80 nginx:alpine
 docker images
 docker ps -a
