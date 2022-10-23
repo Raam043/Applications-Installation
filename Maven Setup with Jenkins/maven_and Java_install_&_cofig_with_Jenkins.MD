@@ -27,6 +27,8 @@ Maven is a code build tool which used to convert your code to an artifact. this 
      ```
    OR
    ```sh
+   mkdir /opt/maven
+   cd /opt/maven
    sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
    sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
    sudo yum install -y apache-maven
