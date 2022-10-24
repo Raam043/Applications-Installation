@@ -1,5 +1,5 @@
 ## Installation steps for Linux
-   '''sh
+   ```sh
    #!/bin/bash
    yum update -y
    amazon-linux-extras install epel -y
@@ -12,5 +12,9 @@
    /usr/sbin/nagios -v /etc/nagios/nagios.cfg
    service nagios status
    service nagios start
-   '''
+   ```
 ## Now open new tab and paste [server_ip/nagios]
+  ```sh
+  userid: nagiosadmin
+  password: nagiosadmin
+  ```
