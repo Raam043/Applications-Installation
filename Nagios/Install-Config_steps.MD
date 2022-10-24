@@ -51,5 +51,5 @@
 ## Now open new tab and paste [server_ip/nagios]
   ```sh
   userid: nagiosadmin
-  password: nagiosadmin (eneter customized password)
+  password: nagiosadmin (enter customized password)
   ```
