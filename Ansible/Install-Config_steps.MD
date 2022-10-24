@@ -58,4 +58,33 @@
   ansible -m ping rnb-servers
   ```
   
+  vi rnb.yml
+  ```sh
+---
+- hosts: webservers 
+  become: True
+  tasks:
+    - name: Install packages
+      yum:
+        name: "httpd"
+        state: "present"
+    - name: Start Apache server
+      service:
+        name: httpd
+        state: started
+        enabled: True
+    - name: Deploy static website
+      copy:
+        src: index.html
+        dest: /var/www/html/
+...
+```
+
+ run below command 
+ ```sh
+ ansible-playbook rnb.yml
+ ```
+ 
+
+
 
