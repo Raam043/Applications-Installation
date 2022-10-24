@@ -1,4 +1,4 @@
-1. Installation steps for Linux
+## Installation steps for Linux
    ```sh
    #!/bin/bash
    yum update -y
@@ -13,14 +13,14 @@
    service nagios status
    service nagios start
    ```
-## Now open new tab and paste [server_ip/nagios]
+. Now open new tab and paste [server_ip/nagios]
   ```sh
   userid: nagiosadmin
   password: nagiosadmin
   ```
 
 
-2. Installation steps for ubuntu
+## Installation steps for ubuntu
   ```sh
   sudo apt-get update
   sudo apt-get install -y autoconf gcc libc6 make wget unzip apache2 php libapache2-mod-php7.4 libgd-dev
@@ -48,7 +48,7 @@
   sudo systemctl restart apache2.service
   sudo systemctl start nagios.service
   ```
-## Now open new tab and paste [server_ip/nagios]
+. Now open new tab and paste [server_ip/nagios]
   ```sh
   userid: nagiosadmin
   password: nagiosadmin (enter customized password)
