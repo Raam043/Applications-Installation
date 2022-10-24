@@ -1,6 +1,8 @@
 # Release Linux-ec2 instance
   connect to the server
+  ```sh
   ssh localhost
+  ```
   >>try to check the status (you will get error as permission denied)
 
   ```sh
