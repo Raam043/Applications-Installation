@@ -91,10 +91,14 @@ This documentation guides you in setting up a cluster with one master node and t
    if already Initialized use Cluster join command to get token details to join workers
    ```sh
    kubeadm token create --print-join-command
+   
+   #Output
+    kubeadm join 172.31.25.79:6443 --token 8haora.ebxx9dbbu5eyiqv2 --discovery-token-ca-cert-hash
+    sha256:51033461996687f19049f9d3dd89e5e9b3e59acd53af17c1ab67e724a1f59bb7   
    ```
 
 ## `On Worker Nodes:`
-1.  Output will be as shown below and run the this on worker nodes
+1.  Run the kubeadm join command on worker nodes to join cluster
   
     kubeadm join 172.31.25.79:6443 --token 8haora.ebxx9dbbu5eyiqv2 --discovery-token-ca-cert-hash
     sha256:51033461996687f19049f9d3dd89e5e9b3e59acd53af17c1ab67e724a1f59bb7
