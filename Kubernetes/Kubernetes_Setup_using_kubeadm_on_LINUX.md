@@ -11,14 +11,22 @@ This documentation guides you in setting up a cluster with one master node and t
 1. Open Below ports in the Security Group. 
    #### Master node: 
     `6443  
-    32750  
-    10250  
-    4443  
-    443  
+    2379-2380  
+    10250
+    10251
+    10252
+    4443 
+    443
+    80
+    22
     8080 `
 
-   ##### On Master node and Worker node:
-    `179`  
+   #### Worker node:
+    `179
+    30000-32767
+    80
+    22
+    10250`  
 
    ### `On Master and Worker:`
    Perform all the commands as root user unless otherwise specified
