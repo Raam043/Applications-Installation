@@ -5,8 +5,8 @@ This documentation guides you in setting up a cluster with one master node and t
 
 ## Prerequisites: 
 1. System Requirements 
-    >Master: t2.medium (2 CPUs and 2GB Memory)   
-    >Worker Nodes: t2.micro 
+    >Master & Nodes: t2.medium (2 CPUs and 2GB Memory)   
+     
 
 1. Open Below ports in the Security Group. 
    #### Master node: 
@@ -79,6 +79,13 @@ This documentation guides you in setting up a cluster with one master node and t
 1. Initialize Kubernetes Cluster
     ```sh
     kubeadm init
+    
+    ## if already Initialized use below command to get token details to join workers
+    kubeadm token create --print-join-command
+    
+    # Output will be
+    kubeadm join 172.31.25.79:6443 --token 8haora.ebxx9dbbu5eyiqv2 --discovery-token-ca-cert-hash
+    sha256:51033461996687f19049f9d3dd89e5e9b3e59acd53af17c1ab67e724a1f59bb7
     ```
 2. kube configure setting
    ```sh
