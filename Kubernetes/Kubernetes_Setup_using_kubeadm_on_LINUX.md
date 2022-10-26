@@ -34,17 +34,14 @@ This documentation guides you in setting up a cluster with one master node and t
 ## Docker setup and Configuration setting for all nodes
    Connect to the nodes with ssh 22 (Using MobaXterm for multi executive) 
    
-1. Install Docker
+1. Install Docker and Start services
    ```sh
    yum install -y docker
-   ```
-
-2. Start Docker services 
-   ```sh
    systemctl enable docker
    systemctl start docker
    ```
-3. Disable swap & Disable SELinux
+   
+2. Disable swap & Disable SELinux
    ```sh
    swapoff -a
    setenforce 0
@@ -56,26 +53,22 @@ This documentation guides you in setting up a cluster with one master node and t
 ## Kubernetes Setup
 1. Add yum repository for kubernetes packages 
     ```sh
-    cat >>/etc/yum.repos.d/kubernetes.repo<<EOF
+    cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
     [kubernetes]
     name=Kubernetes
-    baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+    baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
     enabled=1
     gpgcheck=1
-    repo_gpgcheck=1
-    gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
-            https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+    gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+    exclude=kubelet kubeadm kubectl
     EOF
     ```
-1. Install Kubernetes
+1. Install Kubernetes & Enable and Start kubelet service
     ```sh
-    yum install -y kubeadm kubelet kubectl
+    yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+    sudo systemctl enable --now kubelet
     ```
-1. Enable and Start kubelet service
-    ```sh
-    systemctl enable kubelet
-    systemctl start kubelet
-    ```
+
 ## `On Master Node:`
 1. Initialize Kubernetes Cluster
     ```sh
