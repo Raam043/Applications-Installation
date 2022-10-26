@@ -23,7 +23,8 @@ This documentation guides you in setting up a cluster with one master node and t
    ### `On Master and Worker:`
    Perform all the commands as root user unless otherwise specified
  
-1. Install, Enable and start docker service.
+## Docker setup
+1. 
 
    ```sh
    yum install -y -q yum-utils device-mapper-persistent-data lvm2 > /dev/null 2>&1
