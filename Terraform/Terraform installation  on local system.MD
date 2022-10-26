@@ -25,6 +25,9 @@
   
   in addition you can add based on your service required like = s3.tf, ec2.tf, rds.tf, sns.tf .......
   
+# Create IAM user to manage terraform IAC  
+  Create user and get `Access Key` 🔑 and `Secret Key` and add bith details on `*.tfvars` file
+  
 # Run the terraform commands on cmd to set infrastructure as code
   ```sh
   terraform init
