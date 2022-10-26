@@ -113,6 +113,11 @@ This documentation guides you in setting up a cluster with one master node and t
     ```sh
     kubectl create deployment ramesh-nginx --image=raam043/nginx
     kubectl expose deploy ramesh-nginx --port 80 --target-port 80 --type NodePort
+    
+    # verify the container running status
+    kubectl get pods -o wide
+    kubectl describe svc ramesh-nginx
+    # you will get info of exposing port and Worker_IP:31622
     ```
 
 4.  Running `tomcat` web application on pods
