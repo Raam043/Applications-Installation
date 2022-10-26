@@ -31,42 +31,28 @@ This documentation guides you in setting up a cluster with one master node and t
    ### `On Master and Worker:`
    Perform all the commands as root user unless otherwise specified
  
-## Docker setup
-1. 
-
+## Docker setup and Configuration setting for all nodes
+   Connect to the nodes with ssh 22 (Using MobaXterm for multi executive) 
+   
+1. Install Docker
    ```sh
-   yum install -y -q yum-utils device-mapper-persistent-data lvm2 > /dev/null 2>&1
-   yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo > /dev/null 2>&1
-   yum install -y -q docker-ce >/dev/null 2>&1
+   yum install -y docker
    ```
-1. Start Docker services 
+
+2. Start Docker services 
    ```sh
    systemctl enable docker
    systemctl start docker
    ```
-1. Disable SELinux
+3. Disable swap & Disable SELinux
    ```sh
+   swapoff -a
    setenforce 0
-   sed -i --follow-symlinks 's/^SELINUX=enforcing/SELINUX=disabled/' /etc/sysconfig/selinux
+   sed -i 's/enforcing/disabled/g' /etc/selinux/config
+   grep disabled /etc/selinux/config | grep -v '#'
+   sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
    ```
-1. Disable Firewall
-   ```sh
-   systemctl disable firewalld
-   systemctl stop firewalld
-   ```
-1. Disable swap
-     ```sh
-     sed -i '/swap/d' /etc/fstab
-     swapoff -a
-    ```
-1. Update sysctl settings for Kubernetes networking
-   ```sh
-   cat >> /etc/sysctl.d/kubernetes.conf <<EOF
-   net.bridge.bridge-nf-call-ip6tables = 1
-   net.bridge.bridge-nf-call-iptables = 1
-   EOF
-   sysctl --system
-   ```
+   
 ## Kubernetes Setup
 1. Add yum repository for kubernetes packages 
     ```sh
