@@ -63,49 +63,28 @@ This documentation guides you in setting up a cluster with one master node and t
     exclude=kubelet kubeadm kubectl
     EOF
     ```
-1. Install Kubernetes & Enable and Start kubelet service
+2. Install Kubernetes & Enable and Start kubelet service
     ```sh
     yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
     sudo systemctl enable --now kubelet
     ```
-
+3. Check the versions
+   ```sh
+   kubectl version
+   kubelet --version
+   kubeadm version
+   ```
+ 
 ## `On Master Node:`
 1. Initialize Kubernetes Cluster
     ```sh
-    kubeadm init --apiserver-advertise-address=<MasterServerIP> --pod-network-cidr=192.168.0.0/16
+    kubeadm init
     ```
-1. Create a user for kubernetes administration  and copy kube config file.   
-    ``To be able to use kubectl command to connect and interact with the cluster, the user needs kube config file.``  
-    In this case, we are creating a user called `kubeadmin`
-    ```sh
-    useradd kubeadmin 
-    mkdir /home/kubeadmin/.kube
-    cp /etc/kubernetes/admin.conf /home/kubeadmin/.kube/config
-    chown -R kubeadmin:kubeadmin /home/kubeadmin/.kube
-    ```
-1. Deploy Calico network as a __kubeadmin__ user. 
-	> This should be executed as a user (heare as a __kubeadmin__ )
-    
-    ```sh
-    sudo su - kubeadmin 
-    curl https://docs.projectcalico.org/manifests/calico-typha.yaml -o calico.yaml
-    kubectl apply -f calico.yaml
-    ```
-
-1. Cluster join command
-    ```sh
-    kubeadm token create --print-join-command
-    ```
-## `On Worker Node:`
-1. Add worker nodes to cluster 
-    > Use the output from __kubeadm token create__ command in previous step from the master server and run here.
-
-1. Verifying the cluster
-    To Get Nodes status
-    ```sh
-    kubectl get nodes
-    ```
-    To Get component status
-    ```sh
-    kubectl get cs
-    ```
+2. kube configure setting
+   ```sh
+   mkdir -p $HOME/.kube
+   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+   sudo chown $(id -u):$(id -g) $HOME/.kube/config
+   ```
+   above commands are default after init and joining token will be generated at this moment
+   
