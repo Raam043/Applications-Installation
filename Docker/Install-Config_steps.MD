@@ -21,35 +21,44 @@ vi Dockerfile
 docker create --name nginx_base -p 80:80 nginx:alpine
 docker images
 docker ps -a
+
 ## now start the container using container id
 docker start e54c0dad4f0e
+
 ## open port 80 using docker host ip for confirmation then create index.html file
 vi index.html
+
 ## copy the html file to nginx
 docker cp index.html nginx_base:/usr/share/nginx/html/index.html
+
 ## create image from container
 docker commit nginx_base
+
 ## check docker images for latest images
 docker images
+
 ## set name tag to new image
 docker tag f0ae81009644 mynginx
+
 ## double check - docker images
 docker images
+
 ## Create image with tag
 docker commit nginx_base mynginx
+
 ## stop and delete original container
 docker stop nginx_base
+
 docker rm nginx_base
+
 ## Now run your docker image container 
 docker run --name mynginx -d -p 80:80 mynginx
+
 ## remove html and run as original werbserver
 docker run --name nginx_base --rm -d -p 80:80 nginx:alpine
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
-
 
 docker exec -it 3c1059517791 mkdir  webapps/RRR
+
 docker exec -it 3c1059517791 cp webapps/index.html webapps/RRR
 
 
