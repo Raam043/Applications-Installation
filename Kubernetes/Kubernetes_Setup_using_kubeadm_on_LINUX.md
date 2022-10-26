@@ -79,19 +79,63 @@ This documentation guides you in setting up a cluster with one master node and t
 1. Initialize Kubernetes Cluster
     ```sh
     kubeadm init
-    
-    ## if already Initialized use below command to get token details to join workers
-    kubeadm token create --print-join-command
-    
-    # Output will be
-    kubeadm join 172.31.25.79:6443 --token 8haora.ebxx9dbbu5eyiqv2 --discovery-token-ca-cert-hash
-    sha256:51033461996687f19049f9d3dd89e5e9b3e59acd53af17c1ab67e724a1f59bb7
     ```
-2. kube configure setting
+
+2. kube configure setting with default commands
    ```sh
    mkdir -p $HOME/.kube
    sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
    sudo chown $(id -u):$(id -g) $HOME/.kube/config
    ```
-   above commands are default after init and joining token will be generated at this moment
+   
+   if already Initialized use Cluster join command to get token details to join workers
+   ```sh
+   kubeadm token create --print-join-command
+   ```
+
+## `On Worker Nodes:`
+   # Output will be as shown below and run the this on worker nodes
+    kubeadm join 172.31.25.79:6443 --token 8haora.ebxx9dbbu5eyiqv2 --discovery-token-ca-cert-hash
+    sha256:51033461996687f19049f9d3dd89e5e9b3e59acd53af17c1ab67e724a1f59bb7
+  
+## `On Master Node:`  
+1.  Verifying the cluster To Get Nodes status
+    ```sh
+    kubectl get nodes
+    
+    kubectl get pods -n kube-system -o wide
+    kubectl get pods
+    ```
+    
+2.  Deploy applications on pods
+
+3.  Running `nginx` web server on pods
+    ```sh
+    kubectl create deployment ramesh-nginx --image=raam043/nginx
+    kubectl expose deploy ramesh-nginx --port 80 --target-port 80 --type NodePort
+    ```
+
+4.  Running `tomcat` web application on pods
+    ```sh
+    kubectl create deployment ramesh-tomcat --image=raam043/tomcat
+    kubectl expose deploy ramesh-tomcat --port 8080 --target-port 8080 --type NodePort
+    ```sh
+    
+5. Usefull commands to manage service of Kubernetes
+   ```sh
+   # To verify the services
+   kubectl get pods -o wide
+   kubectl get services
+   kubectl get deployments
+   
+   # To delete pods, service and deployments
+   kubectl delete pods <pods_name>
+   kubectl delete services <service_name>
+   kubectl delete deployments <deployments_name>
+   
+   # To manage containers
+   kubectl exec <container_name> -- ls
+   kubectl exec -it <conatiner_name> -- bash
+   ```
+   
    
