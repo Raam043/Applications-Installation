@@ -45,18 +45,18 @@
    --zones <AZ-1>,<AZ-2>
    
    example:
-   eksctl create cluster --name valaxy-cluster \
+   eksctl create cluster --name ramesh-cluster \
       --region ap-south-1 \
    --node-type t2.small \
     ```
 
 5. To delete the EKS clsuter 
    ```sh 
-   eksctl delete cluster valaxy --region ap-south-1
+   eksctl delete cluster ramesh_cluster --region ap-south-1
    ```
    
 6. Validate your cluster using by creating by checking nodes and by creating a pod 
    ```sh 
    kubectl get nodes
-   kubectl run pod tomcat --image=tomcat 
+   kubectl run pod ramesh-tomcat --image=raam043/tomcat 
    ```
