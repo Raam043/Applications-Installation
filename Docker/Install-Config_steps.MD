@@ -22,12 +22,14 @@ cd docker
 ```
 
 # Dockerfile and Image build
+Add `index.html` file to same directory and run Dockerfile
+
 ```sh
 vi Dockerfile
 ```
 
 Dockerfile contents
-Add `index.html` file to same directory and run Dockerfile
+
 
 `NGINX`
 ```sh
