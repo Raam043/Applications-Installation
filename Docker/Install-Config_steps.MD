@@ -26,8 +26,10 @@ cd docker
 vi Dockerfile
 ```
 
-Dockerfile content 
+Dockerfile contents
+Add `index.html` file to same directory and run Dockerfile
 
+`NGINX`
 ```sh
 FROM ubuntu
 RUN apt-get update
@@ -37,8 +39,21 @@ EXPOSE 80
 CMD ["nginx","-g","daemon off;"]
 ```
 
+`TOMCAT` 
+```SH
+FROM tomcat
+RUN mkdir /usr/local/tomcat/webapps/RRR
+COPY index.html /usr/local/tomcat/webapps/RRR
+EXPOSE 8080
+```
 
-Add `index.html` file to same directory
+`APACHE-HTTPD`
+```sh
+FROM httpd
+COPY index.html /usr/local/apache2/htdocs
+EXPOSE 80
+```
+
 
 
 Now build docker image with aplication (index.html) "." refer for current folder or you can give Dockerfile path instead of "."
