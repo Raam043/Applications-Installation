@@ -33,7 +33,7 @@ CMD ["nginx","-g","daemon off;"]
 
 Add `index.html` file to same directory
 
-Now build docker image with aplication (index.html)
+Now build docker image with aplication (index.html) "." refer for current folder or you can give Dockerfile path instead of "."
 ```sh
 docker build -t <any_name_for_image> .
 ```
@@ -49,4 +49,19 @@ docker run --<any_name_for_container> -d -p 80:80 <target_image_name>
 check container status
 ```sh
 docker ps
+```
+To run shell commands on conatiner
+```sh
+docker exec -it <container_id> bash
+
+docker cp index.html <container_id>:/var/www/html
+```
+To stop containers 
+```sh
+docker stop <container_id>
+```
+
+To delete container 
+```sh
+docker rm <conatiner_id>
 ```
