@@ -1,4 +1,10 @@
-# Installing docker on linux 
+Prerequisites:
+1. EC2 Server
+2. DockerHub account 
+   **[My DockerHub Account](https://hub.docker.com/u/raam043)**
+
+
+# Installing docker on AWS Server
 ```sh
 yum udpate -y
 yum install docker -y
@@ -68,7 +74,8 @@ To delete container
 docker rm <conatiner_id>
 ```
 
-# Docker image push to DockerHub (You must have DockerHub account to push images)
+# Docker image push to DockerHub 
+  You must have DockerHub account to push images
 ```sh
 dokcer login
 ```
