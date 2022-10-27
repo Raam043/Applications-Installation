@@ -92,3 +92,5 @@ docker push raam043/nginx
 ## by default it will consider the tag as latest if specifice tags then tags should be mentioned after name "raam043/nginx:v2.0
 ```
 Successfully uploaded...... 😍
+
+Whats next ?? Try for CICD using "Jenkins"
