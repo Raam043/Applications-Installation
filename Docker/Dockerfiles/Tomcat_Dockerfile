@@ -1,0 +1,4 @@
+FROM tomcat
+RUN mkdir /usr/local/tomcat/webapps/RRR
+COPY index.html /usr/local/tomcat/webapps/RRR
+EXPOSE 8080
