@@ -8,7 +8,7 @@ yum install pip -y
 pip install docker-py
 ```
 
-# create docker working directory
+Create docker working directory
 ```sh
 cd /opt
 mkdir docker
@@ -31,7 +31,9 @@ EXPOSE 80
 CMD ["nginx","-g","daemon off;"]
 ```
 
+
 Add `index.html` file to same directory
+
 
 Now build docker image with aplication (index.html) "." refer for current folder or you can give Dockerfile path instead of "."
 ```sh
@@ -65,3 +67,21 @@ To delete container
 ```sh
 docker rm <conatiner_id>
 ```
+
+# Docker image push to DockerHub (You must have DockerHub account to push images)
+```sh
+dokcer login
+```
+It will ask DockerHub credentials enter it accordingly 
+Username:
+Password:
+
+After successful login run docker images list and rename it as per you account repo:tag
+```sh
+docker tag <running_image_name> raam043/nginx
+
+docker push raam043/nginx
+
+## by default it will consider the tag as latest if specifice tags then tags should be mentioned after name "raam043/nginx:v2.0
+```
+Successfully uploaded...... 😍
