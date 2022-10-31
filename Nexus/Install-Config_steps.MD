@@ -23,7 +23,10 @@ sudo adduser nexus
 sudo passwd nexus
 ```
 ```sh
-# visudo \\ nexus   ALL=(ALL)       NOPASSWD: ALL
+visudo
+```
+```sh
+nexus   ALL=(ALL)       NOPASSWD: ALL
 ```
 ```sh
 sudo chown -R nexus:nexus /opt/nexus
