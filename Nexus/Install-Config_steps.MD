@@ -38,7 +38,7 @@ sudo ln -s /opt/nexus/bin/nexus /etc/init.d/nexus
 
 Download java
 ```sh
-yum install java-1.8.0-openjdk
+yum install java-1.8.0-openjdk -y
 java -version
 ```
 
