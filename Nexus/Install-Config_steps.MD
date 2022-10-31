@@ -35,6 +35,8 @@ sudo chown -R nexus:nexus /opt/nexus
 Open /opt/nexus/bin/nexus.rc file, uncomment run_as_user parameter and set it as following.
 ```sh 
 vi /opt/nexus/bin/nexus.rc
+
+###
 run_as_user="nexus"
 ```
 
