@@ -21,7 +21,11 @@ As a good security practice, it is not advised to run nexus service as root. so 
 ```sh 
 sudo adduser nexus
 sudo passwd nexus
+```
+```sh
 # visudo \\ nexus   ALL=(ALL)       NOPASSWD: ALL
+```
+```sh
 sudo chown -R nexus:nexus /opt/nexus
 ```
 
