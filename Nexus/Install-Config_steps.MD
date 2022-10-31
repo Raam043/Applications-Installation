@@ -35,6 +35,13 @@ Add nexus as a service at boot time
 ```sh
 sudo ln -s /opt/nexus/bin/nexus /etc/init.d/nexus
 ```
+
+Download java
+```sh
+yum install java-1.8.0-openjdk
+java -version
+```
+
 Login as a nexus user and start service
 ```sh
 su - nexus
