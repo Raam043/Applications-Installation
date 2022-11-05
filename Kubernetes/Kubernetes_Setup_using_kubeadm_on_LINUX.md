@@ -171,3 +171,8 @@ This documentation guides you in setting up a cluster with one master node and t
        - containerPort: 80
    ```
      
+  Save and execute the pod service
+  ```sh
+  kubectl apply -f nginx-pod.yml
+  ```
+  ![image](https://user-images.githubusercontent.com/111989928/200110462-8380726a-5ca1-4dbf-9959-6263600ccced.png)
