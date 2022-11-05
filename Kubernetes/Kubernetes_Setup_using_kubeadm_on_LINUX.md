@@ -113,7 +113,7 @@ This documentation guides you in setting up a cluster with one master node and t
     kubectl get pods -n kube-system -o wide
     kubectl get pods
     ```
-2.  If Master + Nodes not ready please install "CNI" Refer file = **[CNI INSTALLATION COMMANDS](https://github.com/Raam043/Applications-Installation/blob/main/Kubernetes/CNI%20installation)**
+2.  If Master + Nodes not ready please check with Calico installer OR CNI
   
     ![image](https://user-images.githubusercontent.com/111989928/200110244-410e46bb-f6cb-4f71-957d-dfa218bcbbf0.png)
   
@@ -167,6 +167,8 @@ This documentation guides you in setting up a cluster with one master node and t
    kind: Pod
    metadata:
      name: nginx-pod
+     labels:
+       app: myapp
    spec:
      containers:
      - image: raam043/nginx
