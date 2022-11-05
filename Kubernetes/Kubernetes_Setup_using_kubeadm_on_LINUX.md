@@ -150,6 +150,9 @@ This documentation guides you in setting up a cluster with one master node and t
    kubectl delete services <service_name>
    kubectl delete deployments <deployments_name>
    
+   #Delete forcefully 
+   kubectl delete pods <pod> --grace-period=0 --force
+   
    # To manage containers
    kubectl exec <container_name> -- ls
    kubectl exec -it <conatiner_name> -- bash
