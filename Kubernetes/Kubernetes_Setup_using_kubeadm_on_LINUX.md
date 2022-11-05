@@ -197,7 +197,7 @@ This documentation guides you in setting up a cluster with one master node and t
       targetPort: 80
     
     selector:
-      app: demoapp
+      app: myapp
     type: NodePort
    ```
   
