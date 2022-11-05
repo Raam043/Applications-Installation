@@ -114,6 +114,8 @@ This documentation guides you in setting up a cluster with one master node and t
     ```
 2.  If Master + Nodes not ready please install "CNI" Refer file = **[CNI INSTALLATION COMMANDS](https://github.com/Raam043/Applications-Installation/blob/main/Kubernetes/CNI%20installation)**
   
+    ![image](https://user-images.githubusercontent.com/111989928/200110244-410e46bb-f6cb-4f71-957d-dfa218bcbbf0.png)
+  
     
 3.  Deploy applications on pods
 
@@ -153,4 +155,19 @@ This documentation guides you in setting up a cluster with one master node and t
    kubectl exec -it <conatiner_name> -- bash
    ```
    
+## `Manifest` file writing for `Pod` setup
    
+   create file `nginx-pod.yml` with below content
+   ```sh
+   apiVersion: v1
+   kind: Pod
+   metadata:
+     name: nginx-pod
+   spec:
+     containers:
+     - image: raam043/nginx
+       name: nginx-myapp
+       ports:
+       - containerPort: 80
+   ```
+     
