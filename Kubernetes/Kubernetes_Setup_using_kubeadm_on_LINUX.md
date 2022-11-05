@@ -105,9 +105,10 @@ This documentation guides you in setting up a cluster with one master node and t
     ```
   
 ## `On Master Node:`  
-1.  Verifying the cluster To Get Nodes status
+1.  Verifying the cluster To Get Nodes status / Calico communication installer
     ```sh
     kubectl get nodes
+    kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.24.4/manifests/tigera-operator.yaml
     
     kubectl get pods -n kube-system -o wide
     kubectl get pods
