@@ -197,7 +197,14 @@ This documentation guides you in setting up a cluster with one master node and t
       app: demoapp
     type: NodePort
    ```
-    
+  
+  Save and execute the pod service
+  ```sh
+  kubectl apply -f nginx-service.yml
+  ```
   
   ![image](https://user-images.githubusercontent.com/111989928/200117885-336dd9ac-0593-40cf-a6b1-eb0ff75825ba.png)
+
+  Output
+  ![image](https://user-images.githubusercontent.com/111989928/200118214-062fad22-de04-4ad0-b87b-67c5362f2b8c.png)
 
