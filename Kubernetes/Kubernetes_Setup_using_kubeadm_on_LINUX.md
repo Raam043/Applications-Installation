@@ -137,6 +137,9 @@ This documentation guides you in setting up a cluster with one master node and t
     ```sh
     kubectl create deployment ramesh-tomcat --image=raam043/tomcat
     kubectl expose deploy ramesh-tomcat --port 8080 --target-port 8080 --type NodePort
+    
+    kubectl create deployment myapp --image=raam043/nginx --replicas=3 --port=80
+    kubectl expose deployment myapp --port=80 --type=LoadBalancer
     ```
     
 6. Usefull commands to manage service of Kubernetes
