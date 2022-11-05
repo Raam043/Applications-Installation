@@ -159,9 +159,9 @@ This documentation guides you in setting up a cluster with one master node and t
    kubectl exec -it <conatiner_name> -- bash
    ```
    
-## `Manifest` file writing for `Pod` setup
+## `Manifest` file writing and running containers
    
-   create file `nginx-pod.yml` with below content
+   1. Create Pod file `nginx-pod.yml` with below content
    ```sh
    apiVersion: v1
    kind: Pod
@@ -181,4 +181,23 @@ This documentation guides you in setting up a cluster with one master node and t
   ```sh
   kubectl apply -f nginx-pod.yml
   ```
-  ![image](https://user-images.githubusercontent.com/111989928/200110462-8380726a-5ca1-4dbf-9959-6263600ccced.png)
+  2. Create Service file `nginx-service` for above pod 
+  ```sh
+  apiVersion: v1
+  kind: Service
+  metadata:
+    name: nginx-service
+   
+  spec:
+    ports:
+    - port: 8080
+      targetPort: 80
+    
+    selector:
+      app: demoapp
+    type: NodePort
+   ```
+    
+  
+  ![image](https://user-images.githubusercontent.com/111989928/200117885-336dd9ac-0593-40cf-a6b1-eb0ff75825ba.png)
+
