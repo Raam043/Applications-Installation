@@ -130,7 +130,7 @@ This documentation guides you in setting up a cluster with one master node and t
     kubectl describe svc ramesh-nginx
     # you will get info of exposing port and Worker_IP:31622
     ```
-    ![image](https://user-images.githubusercontent.com/111989928/199194745-dbd85e9d-6c6f-48d0-ac6e-367a97f1abfe.png)
+ 
 
 
 5.  Running `tomcat` web application on pods
@@ -209,5 +209,5 @@ This documentation guides you in setting up a cluster with one master node and t
   ![image](https://user-images.githubusercontent.com/111989928/200117885-336dd9ac-0593-40cf-a6b1-eb0ff75825ba.png)
 
   Output
-  ![image](https://user-images.githubusercontent.com/111989928/200118214-062fad22-de04-4ad0-b87b-67c5362f2b8c.png)
+
 
