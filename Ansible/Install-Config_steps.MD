@@ -19,7 +19,7 @@
   ```sh
   chmod 755 /root/.ssh/authorized_keys
   ```
-  for giving permissions to that file
+  [Optional]for giving permissions to that file
   
   ```sh
   cat /root/.ssh/id_rsa.pub>>/home/ec2-user/.ssh/authorized_keys
